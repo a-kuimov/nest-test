@@ -13,4 +13,7 @@ export class GroupsService {
   async create(createGroupDto: CreateGroupDto[]) {
     return await this.usersRepository.save(createGroupDto);
   }
+  async getGroups(): Promise<Group[]> {
+    return await this.usersRepository.find();
+  }
 }
