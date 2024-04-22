@@ -3,11 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GroupsModule } from './groups/groups.module';
 
 @Module({
   imports: [
-    GroupsModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '37.143.9.134',
