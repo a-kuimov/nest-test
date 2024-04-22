@@ -7,6 +7,7 @@ import { GroupsModule } from './groups/groups.module';
 
 @Module({
   imports: [
+    GroupsModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '37.143.9.134',
@@ -17,7 +18,6 @@ import { GroupsModule } from './groups/groups.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    GroupsModule,
     ConfigModule.forRoot(),
   ],
   controllers: [AppController],
