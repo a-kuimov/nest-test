@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroupsModule } from './groups/groups.module';
+import { Group } from './groups/entities/group.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { GroupsModule } from './groups/groups.module';
       username: 'uts',
       password: 'uts123UTS!@#',
       database: 'uts',
-      autoLoadEntities: true,
+      entities: [Group],
       synchronize: true,
     }),
     ConfigModule.forRoot(),
