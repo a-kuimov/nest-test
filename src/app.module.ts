@@ -16,7 +16,7 @@ import { Group } from './groups/entities/group.entity';
       password: 'uts123UTS!@#',
       database: 'uts',
       entities: [Group],
-      synchronize: true,
+      synchronize: false,
     }),
     ConfigModule.forRoot(),
     GroupsModule,
