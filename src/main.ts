@@ -10,7 +10,7 @@ async function bootstrap() {
       'https://cdn-ru.bitrix24.ru',
       'http://localhost:5000',
     ],
-    methods: ['GET', 'PUT', 'POST', 'DELETE'],
+    methods: 'GET, PUT, POST, DELETE',
     allowedHeaders: [
       'Content-Type',
       'Origin',
