@@ -18,7 +18,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/groups",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
