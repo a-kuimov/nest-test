@@ -5,7 +5,11 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['https://cdn-ru.bitrix24.ru/', 'https://cdn-ru.bitrix24.ru'],
+    origin: [
+      'https://cdn-ru.bitrix24.ru/',
+      'https://cdn-ru.bitrix24.ru',
+      'http://localhost:5000',
+    ],
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     allowedHeaders: [
       'Content-Type',
