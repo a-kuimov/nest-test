@@ -5,8 +5,15 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['https://cdn-ru.bitrix24.ru'],
+    origin: ['https://cdn-ru.bitrix24.ru/', 'https://cdn-ru.bitrix24.ru'],
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
+    allowedHeaders: [
+      'Content-Type',
+      'Origin',
+      'X-Requested-With',
+      'Accept',
+      'Authorization',
+    ],
     credentials: true,
   });
   app.use(bodyParser.json({ limit: '50mb' }));
