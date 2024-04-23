@@ -4,21 +4,14 @@ import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: [
-      'https://cdn-ru.bitrix24.ru/',
-      'https://cdn-ru.bitrix24.ru',
-      'http://localhost:5000',
-    ],
-    methods: 'GET, PUT, POST, DELETE',
-    allowedHeaders: [
-      'Content-Type',
-      'Origin',
-      'X-Requested-With',
-      'Accept',
-      'Authorization',
-    ],
-    credentials: true,
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Methods',
+      'GET,PUT,POST,DELETE,PATCH,OPTIONS,UPGRADE,CONNECT,TRACE',
+    );
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+    next();
   });
   app.use(bodyParser.json({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
