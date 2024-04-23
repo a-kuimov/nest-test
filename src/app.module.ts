@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroupsModule } from './groups/groups.module';
 import { Group } from './groups/entities/group.entity';
+import { Task } from './tasks/entities/task.entity';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -15,11 +17,12 @@ import { Group } from './groups/entities/group.entity';
       username: 'uts',
       password: 'uts123UTS!@#',
       database: 'uts',
-      entities: [Group],
+      entities: [Group, Task],
       synchronize: false,
     }),
     ConfigModule.forRoot(),
     GroupsModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
