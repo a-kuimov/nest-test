@@ -14,11 +14,13 @@ export class TasksService {
   async create(createTaskDto: CreateTaskDto[]) {
     return await this.taskRepository.save(createTaskDto);
   }
-  async delete() {
+  async delete(id: number) {
+    log('IDDDDDD', id);
     return await this.taskRepository
       .createQueryBuilder()
       .delete()
       .from(Task)
+      .where('groupId = :id', { id: id })
       .execute();
   }
 }

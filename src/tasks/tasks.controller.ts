@@ -13,7 +13,8 @@ export class TasksController {
   }
 
   @Post('/delete')
-  async deleteTodo() {
-    this.tasksService.delete();
+  async deleteTodo(@Body() id: { id: number }) {
+    log('data', id);
+    this.tasksService.delete(Number(id.id));
   }
 }
