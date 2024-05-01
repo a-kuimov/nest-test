@@ -12,9 +12,8 @@ export class TasksController {
     return this.tasksService.create(createTaskDto);
   }
 
-  @Post('/delete')
-  async deleteTodo(@Body() id: { id: number }) {
-    log('data', id);
-    this.tasksService.delete(Number(id.id));
+  @Delete()
+  async deleteTodo() {
+    this.tasksService.delete();
   }
 }
