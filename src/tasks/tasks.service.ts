@@ -14,6 +14,15 @@ export class TasksService {
   async create(createTaskDto: CreateTaskDto[]) {
     return await this.taskRepository.save(createTaskDto);
   }
+  async deleteTodoId(id: number) {
+    log('IDDDDDD', id);
+    return await this.taskRepository
+      .createQueryBuilder()
+      .delete()
+      .from(Task)
+      .where('groupId = :id', { id: id })
+      .execute();
+  }
   async delete() {
     return await this.taskRepository
       .createQueryBuilder()
