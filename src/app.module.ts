@@ -7,6 +7,8 @@ import { GroupsModule } from './groups/groups.module';
 import { Group } from './groups/entities/group.entity';
 import { Task } from './tasks/entities/task.entity';
 import { TasksModule } from './tasks/tasks.module';
+import { CronModule } from './cron/cron.module';
+import { CronModule } from './cron/cron.module';
 
 @Module({
   imports: [
@@ -23,6 +25,7 @@ import { TasksModule } from './tasks/tasks.module';
     ConfigModule.forRoot(),
     GroupsModule,
     TasksModule,
+    CronModule,
   ],
   controllers: [AppController],
   providers: [AppService],
