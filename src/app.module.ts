@@ -8,7 +8,7 @@ import { Group } from './groups/entities/group.entity';
 import { Task } from './tasks/entities/task.entity';
 import { TasksModule } from './tasks/tasks.module';
 import { CronModule } from './cron/cron.module';
-import { CronModule } from './cron/cron.module';
+import { Cron } from './cron/entities/cron.entity';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { CronModule } from './cron/cron.module';
       username: 'uts',
       password: 'uts123UTS!@#',
       database: 'uts',
-      entities: [Group, Task],
+      entities: [Group, Task, Cron],
       synchronize: false,
     }),
     ConfigModule.forRoot(),
